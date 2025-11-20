@@ -1,0 +1,35 @@
+/**
+ * Admin Styles
+ */
+
+.wordpress-app-test-admin {
+	max-width: 800px;
+	margin: 20px 0;
+
+	.button-group {
+		display: flex;
+		gap: 10px;
+		margin-top: 20px;
+		align-items: center;
+
+		.save-success {
+			color: #008000;
+			font-weight: 500;
+		}
+	}
+
+	.settings-panel,
+	.license-panel {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.error-notice {
+		padding: 12px;
+		background-color: #fee;
+		border-left: 4px solid #f00;
+		color: #333;
+		margin-bottom: 20px;
+	}
+}

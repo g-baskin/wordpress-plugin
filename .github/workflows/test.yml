@@ -1,0 +1,51 @@
+name: Tests
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php-version: ['7.4', '8.0', '8.1']
+        wordpress-version: ['6.0', 'latest']
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: root
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+        ports:
+          - 3306:3306
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: mysql
+          coverage: xdebug
+
+      - name: Install dependencies
+        run: |
+          composer install
+          npm install
+
+      - name: Run PHPUnit tests
+        run: npm run test:phpunit
+
+      - name: Run JavaScript tests
+        run: npm run test:unit
+
+      - name: Run linting
+        run: |
+          npm run lint:js
+          npm run lint:style

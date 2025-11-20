@@ -1,0 +1,58 @@
+# Dependencies
+/node_modules/
+/vendor/
+composer.lock
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build outputs
+/build/
+/dist/
+*.tsbuildinfo
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+/coverage/
+.nyc_output/
+tmp/
+temp/
+
+# PHP Testing
+tests/_output/
+tests/_support/_generated/
+
+# WordPress
+/wp-content/
+/wp-admin/
+/wp-includes/
+wp-config.php
+wp-config-local.php
+
+# Plugin specific
+.wordpress.local

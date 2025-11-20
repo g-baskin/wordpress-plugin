@@ -1,0 +1,48 @@
+{
+	"name": "wordpress-app-test",
+	"version": "1.0.0",
+	"description": "Test WordPress plugin with TypeScript, REST API, and license system",
+	"author": "Developer",
+	"license": "GPL-2.0-or-later",
+	"main": "build/admin/index.js",
+	"homepage": "https://example.com/wordpress-app-test",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/your-org/wordpress-app-test"
+	},
+	"scripts": {
+		"start": "wp-scripts start",
+		"build": "wp-scripts build",
+		"lint:js": "wp-scripts lint-js",
+		"lint:style": "wp-scripts lint-style",
+		"format": "wp-scripts format",
+		"test:unit": "wp-scripts test-unit-js",
+		"test:phpunit": "phpunit",
+		"test": "npm run test:unit && npm run test:phpunit",
+		"packages-update": "wp-scripts packages-update"
+	},
+	"devDependencies": {
+		"@testing-library/react": "^14.0.0",
+		"@types/node": "^20.0.0",
+		"@types/wordpress__block-editor": "^11.0.0",
+		"@types/wordpress__components": "^23.0.0",
+		"@typescript-eslint/eslint-plugin": "^6.0.0",
+		"@typescript-eslint/parser": "^6.0.0",
+		"@wordpress/eslint-plugin": "^19.0.0",
+		"@wordpress/scripts": "^31.0.0",
+		"eslint": "^8.50.0",
+		"eslint-config-prettier": "^9.0.0",
+		"prettier": "^3.0.0",
+		"typescript": "^5.0.0"
+	},
+	"dependencies": {
+		"@wordpress/api-fetch": "^6.45.0",
+		"@wordpress/block-editor": "^12.24.0",
+		"@wordpress/components": "^25.18.0",
+		"@wordpress/data": "^9.28.0",
+		"@wordpress/element": "^5.28.0",
+		"@wordpress/hooks": "^3.48.0",
+		"@wordpress/i18n": "^4.48.0",
+		"@wordpress/notices": "^4.28.0"
+	}
+}
