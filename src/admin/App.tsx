@@ -8,6 +8,7 @@ import { getSettings, getLicenseStatus } from '@shared/utils/api';
 import { PluginSettings, LicenseStatus } from '@shared/types';
 import SettingsPanel from './components/SettingsPanel';
 import LicensePanel from './components/LicensePanel';
+import MetricsPanel from './components/MetricsPanel';
 import './styles/admin.scss';
 
 const App: React.FC = () => {
@@ -48,6 +49,11 @@ const App: React.FC = () => {
 
 	const tabs = [
 		{
+			name: 'dashboard',
+			title: 'Dashboard',
+			className: 'dashboard-panel',
+		},
+		{
 			name: 'settings',
 			title: 'Settings',
 			className: 'settings-panel',
@@ -70,6 +76,9 @@ const App: React.FC = () => {
 					<TabPanel tabs={tabs}>
 						{(tab) => (
 							<>
+								{tab.name === 'dashboard' && (
+									<MetricsPanel />
+								)}
 								{tab.name === 'settings' && settings && (
 									<SettingsPanel settings={settings} />
 								)}

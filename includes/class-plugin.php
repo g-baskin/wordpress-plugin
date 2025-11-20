@@ -80,6 +80,7 @@ class Plugin {
 		require_once WORDPRESS_APP_TEST_PLUGIN_DIR . 'includes/api/class-rest-controller.php';
 		require_once WORDPRESS_APP_TEST_PLUGIN_DIR . 'includes/api/class-settings-endpoint.php';
 		require_once WORDPRESS_APP_TEST_PLUGIN_DIR . 'includes/api/class-license-endpoint.php';
+		require_once WORDPRESS_APP_TEST_PLUGIN_DIR . 'includes/api/class-metrics-endpoint.php';
 
 		// Load licensing classes
 		require_once WORDPRESS_APP_TEST_PLUGIN_DIR . 'includes/licensing/class-license-manager.php';
@@ -126,6 +127,9 @@ class Plugin {
 
 		$license_endpoint = new Api\License_Endpoint();
 		$license_endpoint->register_routes();
+
+		$metrics_endpoint = new Api\Metrics_Endpoint();
+		$metrics_endpoint->register_routes();
 	}
 
 	/**
