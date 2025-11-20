@@ -3,7 +3,7 @@
  * Plugin Name: WordPress App Test
  * Plugin URI: https://example.com/wordpress-app-test
  * Description: Test WordPress plugin with TypeScript, REST API, and license system
- * Version: 1.0.0
+ * Version: 1.2.0
  * Author: Developer
  * Author URI: https://example.com
  * License: GPL v2 or later
@@ -21,7 +21,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Define plugin constants
  */
-define( 'WORDPRESS_APP_TEST_VERSION', '1.0.0' );
+define( 'WORDPRESS_APP_TEST_VERSION', '1.2.0' );
 define( 'WORDPRESS_APP_TEST_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WORDPRESS_APP_TEST_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'WORDPRESS_APP_TEST_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
@@ -30,6 +30,11 @@ define( 'WORDPRESS_APP_TEST_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
  * Autoloader for PHP classes
  */
 require_once WORDPRESS_APP_TEST_PLUGIN_DIR . 'includes/class-plugin.php';
+
+/**
+ * Load licensing early for activation hook
+ */
+require_once WORDPRESS_APP_TEST_PLUGIN_DIR . 'includes/licensing/class-license-storage.php';
 
 /**
  * Plugin activation

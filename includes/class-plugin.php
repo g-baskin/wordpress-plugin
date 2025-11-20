@@ -34,8 +34,18 @@ class Plugin {
 	 * Constructor
 	 */
 	private function __construct() {
-		$this->init_hooks();
 		$this->load_dependencies();
+		$this->init_hooks();
+		$this->init_classes();
+	}
+
+	/**
+	 * Initialize plugin classes
+	 */
+	private function init_classes() {
+		if ( is_admin() ) {
+			new Admin\Admin();
+		}
 	}
 
 	/**
